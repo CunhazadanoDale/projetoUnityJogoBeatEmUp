@@ -10,8 +10,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("PlayerMovement script has started.");
-        Debug.Log("Meu jogador é: " + gameObject.name);
         characterController = GetComponent<CharacterController>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
