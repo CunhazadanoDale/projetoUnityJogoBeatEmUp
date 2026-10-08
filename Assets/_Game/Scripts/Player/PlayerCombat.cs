@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] AttackHitBoxArea attackHitBoxArea;
     private PlayerInputActions inputActions;
     public float attackDuration = 0.2f;
+    public float attackDamage = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +34,7 @@ public class PlayerCombat : MonoBehaviour
     private IEnumerator AttackDuration()
     {
         attackHitBoxArea.EnableObject();
+        attackHitBoxArea.setDamage(attackDamage);
         yield return new WaitForSeconds(attackDuration);
         attackHitBoxArea.DisableObject();
     }
