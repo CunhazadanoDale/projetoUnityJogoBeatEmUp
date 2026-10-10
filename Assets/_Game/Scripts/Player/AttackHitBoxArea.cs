@@ -46,7 +46,7 @@ public class AttackHitBoxArea : MonoBehaviour
         }
 
         enemiesHits.Add(enemyHealth);
-        enemyHealth.TakeDamage(damage); 
+        enemyHealth.TakeDamage(damage, transform.root.position); 
     }
 
     public void SetDamage(float damage)
