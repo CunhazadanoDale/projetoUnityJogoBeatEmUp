@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AttackHitBoxArea : MonoBehaviour
 {
 
     Collider hitboxCollider;
     public float damage = 10f;
+    private HashSet<EnemyHealth> enemiesHits = new HashSet<EnemyHealth>();
 
     public void Start()
     {
@@ -19,21 +21,35 @@ public class AttackHitBoxArea : MonoBehaviour
             return;
         }
 
-        AttackDamage(other);
+        Attack(other);
 
         Debug.Log("Algo entrou na hitbox: " + other.gameObject.name);
     }
 
-    private void AttackDamage(Collider other)
+    public void BeginAttack()
     {
-        EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-        if (enemyHealth != null)
-        {
-            enemyHealth.TakeDamage(damage);
-        }
+        enemiesHits.Clear();
     }
 
-    public void setDamage(float damage)
+    private void Attack(Collider other)
+    {
+        EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+
+        if (enemyHealth == null)
+        {
+            return;
+        }
+
+        if (enemiesHits.Contains(enemyHealth))
+        {
+            return;
+        }
+
+        enemiesHits.Add(enemyHealth);
+        enemyHealth.TakeDamage(damage); 
+    }
+
+    public void SetDamage(float damage)
     {
         this.damage = damage;
     }

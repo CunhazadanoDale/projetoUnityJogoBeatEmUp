@@ -818,6 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
   attackHitBoxArea: {fileID: 976681501}
   attackDuration: 0.2
+  attackDamage: 40
 --- !u!1 &976681499
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &976681500
 Transform:
   m_ObjectHideFlags: 0
@@ -864,6 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04154a2224377bc4ea5eac93c951d84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitBoxArea
+  damage: 10
 --- !u!65 &976681502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -924,6 +926,7 @@ GameObject:
   - component: {fileID: 982057405}
   - component: {fileID: 982057404}
   - component: {fileID: 982057403}
+  - component: {fileID: 982057407}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1024,6 +1027,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982057407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982057402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1127be3df5140a642bf9bee40c80c801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  health: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

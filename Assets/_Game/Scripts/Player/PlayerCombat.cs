@@ -33,8 +33,9 @@ public class PlayerCombat : MonoBehaviour
 
     private IEnumerator AttackDuration()
     {
+        attackHitBoxArea.BeginAttack();
+        attackHitBoxArea.SetDamage(attackDamage);
         attackHitBoxArea.EnableObject();
-        attackHitBoxArea.setDamage(attackDamage);
         yield return new WaitForSeconds(attackDuration);
         attackHitBoxArea.DisableObject();
     }
